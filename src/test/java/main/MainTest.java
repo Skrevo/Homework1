@@ -50,4 +50,10 @@ class MainTest {
         double expectedAverage =  stream(Main.createArrayOfY()).sum() / 241;
         assertThat(Main.averageOfY()).isCloseTo(expectedAverage, Percentage.withPercentage(0.01));
     }
+
+    @ParameterizedTest
+    @CsvSource({"0, 0.8", "180, 1.7", "240, 2.0"})
+    void createArrayOfX(int index, double expectedX) {
+        assertThat(Main.createArrayOfX()[index]).isCloseTo(expectedX, Percentage.withPercentage(0.001));
+    }
 }
