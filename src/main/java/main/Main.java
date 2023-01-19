@@ -17,6 +17,8 @@ public class Main {
         System.out.println("Array of Y:" + Arrays.toString(arrayOfY));
         System.out.println("Index of max Y: " + Main.indexOfMaxY());
         System.out.println("Index of min Y: " + Main.indexOfMinY());
+        System.out.println("Sum of Y: " + Main.sumOfY());
+        System.out.println("Average of Y: " + Main.averageOfY());
     }
 
     private static final double A = 1.5;
@@ -90,5 +92,16 @@ public class Main {
         return index;
     }
 
+    public static double sumOfY() {
+        double sum = 0;
+        for (int i = 0; i < createArrayOfY().length; i++) {
+            sum += createArrayOfY()[i];
+        }
+        return sum;
+    }
+
+    public static double averageOfY() {
+        return Main.sumOfY()/Main.countNumberOfSteps();
+    }
 
 }

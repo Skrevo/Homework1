@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import java.util.Arrays;
-
+import static java.util.Arrays.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class MainTest {
@@ -30,13 +29,25 @@ class MainTest {
 
     @Test
     void testIndexOfMaxY() {
-        int expectedIndex = Arrays.stream(Main.createArrayOfY()).boxed().toList().indexOf(6.6570574401545795);
+        int expectedIndex = stream(Main.createArrayOfY()).boxed().toList().indexOf(6.6570574401545795);
         assertThat(Main.indexOfMaxY()).isCloseTo(expectedIndex, Percentage.withPercentage(0.01));
     }
 
     @Test
     void testIndexOfMinY() {
-        int expectedIndex = Arrays.stream(Main.createArrayOfY()).boxed().toList().indexOf(-8.92688070170253);
+        int expectedIndex = stream(Main.createArrayOfY()).boxed().toList().indexOf(-8.92688070170253);
         assertThat(Main.indexOfMinY()).isCloseTo(expectedIndex, Percentage.withPercentage(0.01));
+    }
+
+    @Test
+    void testSumOfY() {
+        double expectedSum = stream(Main.createArrayOfY()).sum();
+        assertThat(Main.sumOfY()).isCloseTo(expectedSum, Percentage.withPercentage(0.01));
+    }
+
+    @Test
+    void averageOfY() {
+        double expectedAverage =  stream(Main.createArrayOfY()).sum() / 241;
+        assertThat(Main.averageOfY()).isCloseTo(expectedAverage, Percentage.withPercentage(0.01));
     }
 }
