@@ -6,6 +6,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.util.Arrays;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 class MainTest {
@@ -24,5 +26,17 @@ class MainTest {
     void testCountNumberOfSteps() {
         int expectedNumberOfSteps = 241;
         assertThat(Main.countNumberOfSteps()).isCloseTo(expectedNumberOfSteps, Percentage.withPercentage(0.1));
+    }
+
+    @Test
+    void testIndexOfMaxY() {
+        int expectedIndex = Arrays.stream(Main.createArrayOfY()).boxed().toList().indexOf(6.6570574401545795);
+        assertThat(Main.indexOfMaxY()).isCloseTo(expectedIndex, Percentage.withPercentage(0.01));
+    }
+
+    @Test
+    void testIndexOfMinY() {
+        int expectedIndex = Arrays.stream(Main.createArrayOfY()).boxed().toList().indexOf(-8.92688070170253);
+        assertThat(Main.indexOfMinY()).isCloseTo(expectedIndex, Percentage.withPercentage(0.01));
     }
 }

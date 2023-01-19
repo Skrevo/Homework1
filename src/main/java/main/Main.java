@@ -8,13 +8,15 @@ public class Main {
     public static void main(String[] args) {
         
         double y = Main.function(2);
-        System.out.println(y);
+        System.out.println("y = " + y);
         int numberOfSteps = Main.countNumberOfSteps();
-        System.out.println(numberOfSteps);
+        System.out.println("Number of steps: " + numberOfSteps);
         double[] arrayOfX = Main.createArrayOfX();
-        System.out.println(Arrays.toString(arrayOfX));
+        System.out.println("Array of X: " + Arrays.toString(arrayOfX));
         double[] arrayOfY = Main.createArrayOfY();
-        System.out.println(Arrays.toString(arrayOfY));
+        System.out.println("Array of Y:" + Arrays.toString(arrayOfY));
+        System.out.println("Index of max Y: " + Main.indexOfMaxY());
+        System.out.println("Index of min Y: " + Main.indexOfMinY());
     }
 
     private static final double A = 1.5;
@@ -62,4 +64,31 @@ public class Main {
         }
         return arrayOfY;
     }
+
+    public static int indexOfMaxY() {
+        int index = 0;
+        double maxY = createArrayOfY()[0];
+        for (int i = 0; i < createArrayOfY().length; i++) {
+            if (createArrayOfY()[i] > maxY ) {
+                maxY = createArrayOfY()[i];
+                index = i;
+            }
+        }
+
+        return index;
+    }
+
+    public static int indexOfMinY() {
+        int index = 0;
+        double minY = createArrayOfY()[0];
+        for (int i = 0; i < createArrayOfY().length; i++) {
+            if (createArrayOfY()[i] < minY ) {
+                minY = createArrayOfY()[i];
+                index = i;
+            }
+        }
+        return index;
+    }
+
+
 }
