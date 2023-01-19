@@ -19,4 +19,13 @@ class MainTest {
     void testFunction(double x, double expectedY) {
         assertThat(Main.function(x)).isCloseTo(expectedY, Percentage.withPercentage(0.01));
     }
+
+    @Test
+    void testCountNumberOfSteps() {
+        double borderDown = 0.8;
+        double borderUp = 2.0;
+        double delta = 0.005;
+        int expectedNumberOfSteps = 241;
+        assertThat(Main.countNumberOfSteps(borderDown, borderUp, delta)).isCloseTo(expectedNumberOfSteps, Percentage.withPercentage(0.1));
+    }
 }
