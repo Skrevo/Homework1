@@ -22,10 +22,7 @@ class MainTest {
 
     @Test
     void testCountNumberOfSteps() {
-        double borderDown = 0.8;
-        double borderUp = 2.0;
-        double delta = 0.005;
         int expectedNumberOfSteps = 241;
-        assertThat(Main.countNumberOfSteps(borderDown, borderUp, delta)).isCloseTo(expectedNumberOfSteps, Percentage.withPercentage(0.1));
+        assertThat(Main.countNumberOfSteps()).isCloseTo(expectedNumberOfSteps, Percentage.withPercentage(0.1));
     }
 }
