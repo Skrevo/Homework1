@@ -6,19 +6,17 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        
-        double y = Main.function(2);
-        System.out.println("y = " + y);
-        int numberOfSteps = Main.countNumberOfSteps();
-        System.out.println("Number of steps: " + numberOfSteps);
-        double[] arrayOfX = Main.createArrayOfX();
-        System.out.println("Array of X: " + Arrays.toString(arrayOfX));
-        double[] arrayOfY = Main.createArrayOfY();
-        System.out.println("Array of Y:" + Arrays.toString(arrayOfY));
+
+        System.out.println("y = " + Main.function(2));
+        System.out.println("Number of steps: " + Main.countNumberOfSteps());
+        System.out.println("Array of X: " + Arrays.toString(Main.createArrayOfX()));
+        System.out.println("Array of Y:" + Arrays.toString(Main.createArrayOfY()));
         System.out.println("Index of max Y: " + Main.indexOfMaxY());
         System.out.println("Index of min Y: " + Main.indexOfMinY());
         System.out.println("Sum of Y: " + Main.sumOfY());
         System.out.println("Average of Y: " + Main.averageOfY());
+        Main.maxYWithIndexAndX();
+        Main.minYWithIndexAndX();
     }
 
     private static final double A = 1.5;
@@ -102,6 +100,18 @@ public class Main {
 
     public static double averageOfY() {
         return Main.sumOfY()/Main.countNumberOfSteps();
+    }
+
+    public static void maxYWithIndexAndX() {
+        double maxY = createArrayOfY()[indexOfMaxY()];
+        double maxX = createArrayOfX()[indexOfMaxY()];
+        System.out.println("Max Y = " + maxY + ", Index of max Y = " + indexOfMaxY() + ", with X = " + maxX);
+    }
+
+    public static void minYWithIndexAndX() {
+        double minY = createArrayOfY()[indexOfMinY()];
+        double minX = createArrayOfX()[indexOfMinY()];
+        System.out.println("Min Y = " + minY + ", Index of min Y = " + indexOfMinY() + ", with X = " + minX);
     }
 
 }
