@@ -19,20 +19,23 @@ public class Main {
         Main.minYWithIndexAndX();
     }
 
+    public static final double EPS = 1e-9;
     private static final double A = 1.5;
     private static final double BORDER1 = 0.8;
     private static final double BORDER2 = 2;
     private static final double DELTA = 0.005;
+
+    // 3
     public static double function(double x) {
-        if (x < 1.7) {
+        if (x < 1.7 - EPS)
             return Math.PI * Math.pow(x,2) - 7 / Math.pow(x,2) ;
-        }
-        if (x == 1.7) {
+        else if (x == 1.7)
             return A * Math.pow(x,3) + 7 * Math.sqrt(x);
-        }
+         else
         return Math.log10(x + 7 * Math.sqrt(x));    //if (x > 1.7)
     }
 
+    // 4
     public static int countNumberOfSteps() {
 
         double currentY = BORDER1;
@@ -44,6 +47,7 @@ public class Main {
         return count;
     }
 
+    // 5
     public static double[] createArrayOfX() {
 
         double[] arrayOfX = new double[Main.countNumberOfSteps()];
@@ -65,6 +69,7 @@ public class Main {
         return arrayOfY;
     }
 
+    // 6
     public static int indexOfMaxY() {
         int index = 0;
         double maxY = createArrayOfY()[0];
@@ -101,6 +106,8 @@ public class Main {
     public static double averageOfY() {
         return Main.sumOfY()/Main.countNumberOfSteps();
     }
+
+    // 7
 
     public static void maxYWithIndexAndX() {
         double maxY = createArrayOfY()[indexOfMaxY()];

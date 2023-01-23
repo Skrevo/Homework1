@@ -29,7 +29,7 @@ class MainTest {
 
     @Test
     void testIndexOfMaxY() {
-        int expectedIndex = stream(Main.createArrayOfY()).boxed().toList().indexOf(6.6570574401545795);
+        int expectedIndex = stream(Main.createArrayOfY()).boxed().toList().indexOf(6.589417885305586);
         assertThat(Main.indexOfMaxY()).isCloseTo(expectedIndex, Percentage.withPercentage(0.01));
     }
 
